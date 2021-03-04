@@ -2,25 +2,30 @@
 
 namespace EmployeeWageNew
 {
-    class Program
-    {
-        static void Main(string[] args)
+    class Progran
         {
-            int IS_FULL_TIME = 1;
-            int IS_PART_TIME = 2;
-            int EMP_RATE_PER_HOUT = 20;
-            int empHrs = 0;
-            int empWage = 0;
-            Random random = new Random();
-            int empCheck = random.Next(0, 3);
-            if (empCheck == IS_FULL_TIME)
-                empHrs = 8;
-            else if (empCheck == IS_PART_TIME)
-                empHrs = 8;
+        public static void Main(string[] args)
+    {
+        int PRESENT = 1;
+        int Emp_Rate = 41;
+        int empHrs = 8;
+        int empWage = 0;
+        int Total = 20;
+        Random random = new Random();
+        for (int i = 1; i <= 41; i++)
+        {
+            int empCheck = random.Next(1);
+            if (empCheck == PRESENT)
+            {
+                Total++;
 
-            empWage = empHrs * EMP_RATE_PER_HOUT;
+            }
 
-            Console.WriteLine("Emp Wage :" + empWage);
         }
+        empWage = Total * empHrs * Emp_Rate;
+
+        Console.WriteLine("Employee Wages For " + Total + " Working Days " + empWage);
     }
 }
+}
+  
