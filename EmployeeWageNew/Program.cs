@@ -4,19 +4,27 @@ namespace EmployeeWageNew
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int IS_FULL_TIME = 1;
-            int EMP_RATE_PER_HOUT = 20;
-            int empHrs = 0;
+            int PRESENT = 1;
+            int Emp_Rate = 41;
+            int empHrs = 8;
             int empWage = 0;
+            int count = 0;
             Random random = new Random();
-            int empCheck = random.Next(0, 2);
-            if (empCheck == IS_FULL_TIME)
-                empHrs = 8;
-            empWage = empHrs * EMP_RATE_PER_HOUT;
+            for (int i = 1; i <= 41; i++)
+            {
+                int empCheck = random.Next(0, 2);
+                if (empCheck == PRESENT)
+                {
+                    count++;
 
-            Console.WriteLine("Emp Wage :" + empWage);
+                }
+
+            }
+            empWage = count * empHrs * Emp_Rate;
+
+            Console.WriteLine("Employee Wages For " + count + " Working Days " + empWage);
         }
     }
 }
