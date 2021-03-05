@@ -1,19 +1,23 @@
-﻿using System;
+using System;
 
 namespace EmployeeWageNew
 {
+
+
     class Progran
     {
+        //Constants
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_OF_WORKING_DAYS = 2;
-        public const int MAX_HRS_IN_MONTH = 10;
-        public static int computeEmpWage()
+        public const int NUM_OF_WORKING_DAYS = 20;
+        public const int MAX_HRS_IN_MONTH = 100;
+        public static void Main()
         {
             //variables
-            int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-            //Computation
+            int empHrs = 0;
+            int totalWorkingDays = 0;
+            int totalEmpHrs = 0;
             while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
             {
                 totalWorkingDays++;
@@ -33,18 +37,11 @@ namespace EmployeeWageNew
                 }
 
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Day#:" + totalWorkingDays + " EmpHrs: " + empHrs);
+                Console.WriteLine("Day#" + totalWorkingDays + "EmpHrs:" + empHrs);
             }
-            //Console.WriteLine(totalEmpHrs + "   " + totalWorkingDays);
+            Console.WriteLine(totalEmpHrs + "   " + totalWorkingDays);
             int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Total Emp Wage: " + totalEmpWage);
-            return totalEmpWage;
-        }
-
-        static void Main(string[] args)
-        {
-            computeEmpWage();
-            Console.ReadKey();
         }
 
     }
