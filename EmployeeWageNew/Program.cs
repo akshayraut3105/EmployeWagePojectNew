@@ -4,28 +4,45 @@ namespace EmployeeWageNew
 {
     class Progran
         {
-        public static void Main(string[] args)
-    {
-        int PRESENT = 1;
-        int Emp_Rate = 41;
-        int empHrs = 8;
-        int empWage = 0;
-        int Total = 20;
-        Random random = new Random();
-        for (int i = 1; i <= 41; i++)
+        public const int IS_PART_TIME = 1;
+        public const int IS_FULL_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 20;
+        public const int NUM_OF_WORKING_DAYS = 20;
+        public const int MAX_HRS_IN_MONTH = 100;
+        static void computeEmpWage()
         {
-            int empCheck = random.Next(1);
-            if (empCheck == PRESENT)
+            int empHrs = 0;
+            int totalEmpHrs = 0;
+            int totalWorkingDays = 0;
+            while (empHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_OF_WORKING_DAYS)
             {
-                Total++;
+                totalWorkingDays++;
+                Random random = new Random();
 
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Days:" + totalWorkingDays + "emp Hrs:" + empHrs);
             }
 
+            int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Total Emp Wage: " + totalEmpWage);
         }
-        empWage = Total * empHrs * Emp_Rate;
+        public static void Main()
+        {
+            computeEmpWage();
+        }
 
-        Console.WriteLine("Employee Wages For " + Total + " Working Days " + empWage);
     }
 }
-}
-  
