@@ -1,10 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace EmployeeWage
+namespace EmployeeWageNew
 {
     class EmpWageBuilderObject
     {
@@ -16,7 +14,7 @@ namespace EmployeeWage
         private int numOfWorkingDays;
         private int maxHoursPerMonth;
         private int totalEmpWage;
-        public EmpWageBuilderObject(string company, int empRatePerHour,int numOfWorkingDays, int maxHoursPerMonth)
+        public EmpWageBuilderObject(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             this.company = company;
             this.empRatePerHour = empRatePerHour;
@@ -54,7 +52,5 @@ namespace EmployeeWage
             totalEmpWage = totalEmpHrs * this.empRatePerHour;
             Console.WriteLine("Total Emp Wage for Company : " + company + " is: " + totalEmpWage);
         }
-
-
     }
 }
